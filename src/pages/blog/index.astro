@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Base
+  title="Writing"
+  description="Draft notes on serverless APIs, monolith migrations, and backend performance. Outlines, not finished essays."
+>
+  <article class="article">
+    <a class="back" href="/#top">← Home</a>
+    <h1>Writing</h1>
+    <p class="note">
+      Draft outlines from work already on the resume. They are here to be rewritten. Each note is marked noindex until it is finished.
+    </p>
+    <div class="post-list">
+      {
+        posts.map((post) => (
+          <a href={`/blog/${post.id}`}>
+            <div class="post-date">
+              {post.data.draft ? 'Draft · ' : ''}
+              {post.data.date.toLocaleDateString('en-IN', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </div>
+            <h2>{post.data.title}</h2>
+          </a>
+        ))
+      }
+    </div>
+  </article>
+</Base>

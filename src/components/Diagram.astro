@@ -1,0 +1,127 @@
+---
+interface Props {
+  name: 'serverless' | 'microservices' | 'cicd';
+}
+
+const { name } = Astro.props;
+
+const titles = {
+  serverless: 'Representative serverless ingestion path: client, API Gateway, Lambda, S3, and PostgreSQL, with CloudWatch, X-Ray, and Winston.',
+  microservices: 'Representative microservices path: clients through API Gateway to Lambda and ECS services, with a queue and PostgreSQL and MongoDB.',
+  cicd: 'Representative delivery path: GitHub, Actions, Jest and Supertest, CodePipeline, Lambda or ECS, and CloudWatch.',
+};
+---
+
+<figure class="diagram">
+  <svg viewBox="0 0 760 280" role="img" aria-labelledby={`diagram-${name}`}>
+    <title id={`diagram-${name}`}>{titles[name]}</title>
+    {
+      name === 'serverless' && (
+        <g fill="none" stroke="#1c1b19" stroke-width="1.25">
+          <rect x="16" y="36" width="128" height="64" fill="#f4f1ec" />
+          <rect x="188" y="36" width="156" height="64" fill="#f4f1ec" />
+          <rect x="388" y="36" width="140" height="64" fill="#f4f1ec" stroke="#c9482b" />
+          <rect x="572" y="36" width="172" height="64" fill="#f4f1ec" />
+          <rect x="388" y="156" width="140" height="64" fill="#f4f1ec" />
+          <line x1="144" y1="68" x2="188" y2="68" />
+          <polyline points="180,63 188,68 180,73" />
+          <line x1="344" y1="68" x2="388" y2="68" />
+          <polyline points="380,63 388,68 380,73" />
+          <line x1="528" y1="68" x2="572" y2="68" />
+          <polyline points="564,63 572,68 564,73" />
+          <line x1="458" y1="100" x2="458" y2="156" />
+          <polyline points="453,148 458,156 463,148" />
+        </g>
+      )
+    }
+    {
+      name === 'serverless' && (
+        <g fill="#1c1b19" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13" text-anchor="middle">
+          <text x="80" y="73">Client</text>
+          <text x="266" y="66">API Gateway</text>
+          <text x="266" y="84" font-size="11" fill="#55524c">REST</text>
+          <text x="458" y="73" fill="#c9482b">Lambda</text>
+          <text x="658" y="66">S3</text>
+          <text x="658" y="84" font-size="11" fill="#55524c">AES-256 studies</text>
+          <text x="458" y="186">PostgreSQL</text>
+          <text x="458" y="204" font-size="11" fill="#55524c">RDS</text>
+          <text x="380" y="252" font-size="12" fill="#55524c" text-anchor="start">CloudWatch · X-Ray · Winston</text>
+        </g>
+      )
+    }
+    {
+      name === 'microservices' && (
+        <g fill="none" stroke="#1c1b19" stroke-width="1.25">
+          <rect x="16" y="28" width="150" height="64" fill="#f4f1ec" />
+          <rect x="210" y="28" width="160" height="64" fill="#f4f1ec" />
+          <rect x="414" y="28" width="180" height="64" fill="#f4f1ec" stroke="#c9482b" />
+          <rect x="414" y="140" width="180" height="56" fill="#f4f1ec" />
+          <rect x="150" y="224" width="170" height="48" fill="#f4f1ec" />
+          <rect x="440" y="224" width="170" height="48" fill="#f4f1ec" />
+          <line x1="166" y1="60" x2="210" y2="60" />
+          <polyline points="202,55 210,60 202,65" />
+          <line x1="370" y1="60" x2="414" y2="60" />
+          <polyline points="406,55 414,60 406,65" />
+          <line x1="504" y1="92" x2="504" y2="140" />
+          <polyline points="499,132 504,140 509,132" />
+          <line x1="504" y1="196" x2="504" y2="212" />
+          <line x1="235" y1="212" x2="525" y2="212" />
+          <line x1="235" y1="212" x2="235" y2="224" />
+          <line x1="525" y1="212" x2="525" y2="224" />
+        </g>
+      )
+    }
+    {
+      name === 'microservices' && (
+        <g fill="#1c1b19" font-family="JetBrains Mono, ui-monospace, monospace" font-size="13" text-anchor="middle">
+          <text x="91" y="65">Web / mobile</text>
+          <text x="290" y="65">API Gateway</text>
+          <text x="504" y="56" fill="#c9482b">Lambda / ECS</text>
+          <text x="504" y="74" font-size="11" fill="#55524c">services</text>
+          <text x="504" y="164">SQS</text>
+          <text x="504" y="182" font-size="11" fill="#55524c">workers · retries</text>
+          <text x="235" y="252">PostgreSQL</text>
+          <text x="525" y="252">MongoDB</text>
+        </g>
+      )
+    }
+    {
+      name === 'cicd' && (
+        <g fill="none" stroke="#1c1b19" stroke-width="1.25">
+          <rect x="16" y="96" width="108" height="64" fill="#f4f1ec" />
+          <rect x="146" y="96" width="108" height="64" fill="#f4f1ec" />
+          <rect x="276" y="96" width="108" height="64" fill="#f4f1ec" />
+          <rect x="406" y="96" width="108" height="64" fill="#f4f1ec" stroke="#c9482b" />
+          <rect x="536" y="96" width="100" height="64" fill="#f4f1ec" />
+          <rect x="658" y="96" width="86" height="64" fill="#f4f1ec" />
+          <line x1="124" y1="128" x2="146" y2="128" />
+          <polyline points="138,123 146,128 138,133" />
+          <line x1="254" y1="128" x2="276" y2="128" />
+          <polyline points="268,123 276,128 268,133" />
+          <line x1="384" y1="128" x2="406" y2="128" />
+          <polyline points="398,123 406,128 398,133" />
+          <line x1="514" y1="128" x2="536" y2="128" />
+          <polyline points="528,123 536,128 528,133" />
+          <line x1="636" y1="128" x2="658" y2="128" />
+          <polyline points="650,123 658,128 650,133" />
+        </g>
+      )
+    }
+    {
+      name === 'cicd' && (
+        <g fill="#1c1b19" font-family="JetBrains Mono, ui-monospace, monospace" font-size="12" text-anchor="middle">
+          <text x="70" y="132">GitHub</text>
+          <text x="200" y="132">Actions</text>
+          <text x="330" y="126">Jest</text>
+          <text x="330" y="144" font-size="11" fill="#55524c">Supertest</text>
+          <text x="460" y="132" fill="#c9482b">Pipeline</text>
+          <text x="586" y="126">Lambda</text>
+          <text x="586" y="144" font-size="11" fill="#55524c">ECS</text>
+          <text x="701" y="126">Watch</text>
+          <text x="701" y="144" font-size="11" fill="#55524c">logs</text>
+        </g>
+      )
+    }
+  </svg>
+  <figcaption>Representative architecture based on past work.</figcaption>
+</figure>

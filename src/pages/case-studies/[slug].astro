@@ -1,0 +1,66 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Diagram from '../../components/Diagram.astro';
+
+export async function getStaticPaths() {
+  const studies = await getCollection('caseStudies');
+  return studies.map((study) => ({
+    params: { slug: study.id },
+    props: { study },
+  }));
+}
+
+const { study } = Astro.props;
+const { Content } = await render(study);
+const others = (await getCollection('caseStudies'))
+  .filter((entry) => entry.id !== study.id)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base title={study.data.title} description={study.data.description}>
+  <article class="article">
+    <a class="back" href="/#work">← Selected work</a>
+    <p class="kicker">{study.data.number} / {study.data.tag}</p>
+    <h1>{study.data.title}</h1>
+    <div class="article-metrics">
+      {
+        study.data.metrics.map((metric) => (
+          <div>
+            <div class="metric-value">{metric.value}</div>
+            <div class="metric-label">{metric.label}</div>
+          </div>
+        ))
+      }
+    </div>
+    <div class="prose">
+      <Content />
+    </div>
+    {study.data.diagram && <Diagram name={study.data.diagram} />}
+    <section class="approach" aria-labelledby="approach-heading">
+      <h2 class="h2" id="approach-heading">Engineering approach</h2>
+      <ul class="points">
+        {
+          study.data.approach.map((item) => (
+            <li>
+              <span aria-hidden="true">›</span>
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="chips stack-chips">
+        {study.data.stack.map((item) => <span class="chip">{item}</span>)}
+      </div>
+    </section>
+    <nav class="related" aria-label="Other case studies">
+      {
+        others.map((entry) => (
+          <a href={`/case-studies/${entry.id}`}>
+            {entry.data.number} — {entry.data.title}
+          </a>
+        ))
+      }
+    </nav>
+  </article>
+</Base>

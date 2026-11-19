@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#f4f1ec;color:#1c1b19;font-family:'Hanken Grotesk',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#1c1b19;text-decoration-color:#c9482b}
+a:hover{color:#c9482b}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(201,72,43,.5)}100%{box-shadow:0 0 0 10px rgba(201,72,43,0)}}
+@keyframes slide{from{transform:translateY(105%)}to{transform:none}}
+[data-in]{opacity:0;animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:var(--d,0s)}
+[data-line]{display:block;overflow:hidden;padding-bottom:.08em}
+[data-line]>span{display:block;transform:translateY(105%);animation:slide 1s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:var(--d,0s)}
+[data-dot]{animation:pulse 1.8s ease-out infinite}
+@supports (animation-timeline:view()){[data-reveal]{animation:rise both linear;animation-timeline:view();animation-range:entry 5% entry 45%}}
+[data-card]{transition:background .35s,transform .35s}
+[data-card]:hover{background:#262522!important}
+[data-card]:hover [data-arrow]{transform:translate(4px,-4px);color:#ec8a6f}
+[data-arrow]{transition:transform .35s,color .35s}
+[data-card] [data-bar]{transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+[data-card]:hover [data-bar]{transform:scaleX(1)}
+@media (prefers-reduced-motion:reduce){[data-in],[data-line]>span,[data-reveal]{animation:none!important;opacity:1!important;transform:none!important}[data-dot]{animation:none}}
+@media (max-width:640px){
+[data-nav] a:not([data-keep]){display:none}
+[data-cta]{width:100%}[data-cta] a{flex:1 1 100%;text-align:center;box-sizing:border-box}
+[data-hero]{padding-top:40px!important}
+[data-card]{padding:28px 22px!important}
+}
+::selection{background:#c9482b;color:#fff}
+</style>
+</helmet>
+<div style="max-width:1160px;margin:0 auto;padding:0 clamp(20px,4vw,48px)">
+
+<header style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:28px 0;font-size:14px">
+  <a href="#top" style="font-family:'Instrument Serif',serif;font-size:26px;text-decoration:none;letter-spacing:-0.01em">Atul Tiwari</a>
+  <nav data-nav="1" style="display:flex;gap:clamp(14px,2.5vw,32px);align-items:center;justify-content:flex-end">
+    <a href="#experience" style="text-decoration:none;color:#55524c">Experience</a>
+    <a href="#work" style="text-decoration:none;color:#55524c">Work</a>
+    <a href="#skills" style="text-decoration:none;color:#55524c">Skills</a>
+    <a data-keep="1" href="#contact" style="text-decoration:none;border:1px solid #1c1b19;border-radius:999px;padding:8px 18px;font-weight:500" style-hover="background:#1c1b19;color:#f4f1ec">Contact</a>
+  </nav>
+</header>
+
+<section id="top" data-hero="1" style="padding:clamp(56px,9vw,112px) 0 clamp(48px,7vw,88px)">
+  <div data-in="1" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#c9482b;display:flex;align-items:center;gap:12px;line-height:1.5"><span data-dot="1" style="width:8px;height:8px;border-radius:50%;background:#c9482b;display:inline-block;flex:none"></span>Open to Senior Backend Engineer and Backend Tech Lead roles</div>
+  <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,10vw,148px);line-height:0.94;letter-spacing:-0.03em;margin:32px 0 0">
+    <span data-line="1"><span style="--d:.1s">Backend systems</span></span>
+    <span data-line="1"><span style="--d:.22s">that <em style="color:#c9482b">stay up</em>.</span></span>
+  </h1>
+  <div data-in="1" style="--d:.55s;display:flex;gap:10px 28px;flex-wrap:wrap;margin-top:40px;padding-top:20px;border-top:1px solid #1c1b19;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#55524c;text-transform:uppercase"><span>Atul Tiwari</span><span>Project Lead, Persistent Systems</span><span>Mumbai, India</span><span>8 years</span></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:36px;margin-top:40px;align-items:end">
+    <p data-in="1" style="--d:.7s;font-size:clamp(18px,1.6vw,21px);line-height:1.55;color:#3a3833;margin:0;max-width:34em;text-wrap:pretty">Senior Backend Engineer and Tech Lead building high-scale, high-uptime systems across Fintech, Healthcare, and Real Estate, with Node.js, TypeScript, and AWS Serverless.</p>
+    <div data-in="1" data-cta="1" style="--d:.85s;display:flex;gap:12px;flex-wrap:wrap">
+      <a href="resume.pdf" download="Atul Tiwari - Resume.pdf" style="background:#1c1b19;color:#f4f1ec;padding:14px 24px;border-radius:999px;text-decoration:none;font-weight:500;font-size:15px" style-hover="background:#c9482b;color:#fff">Download resume</a>
+      <a href="https://www.linkedin.com/in/atul-tiwari-91990316a" style="border:1px solid #1c1b19;padding:13px 24px;border-radius:999px;text-decoration:none;font-weight:500;font-size:15px" style-hover="background:#1c1b19;color:#f4f1ec">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid #1c1b19;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+  <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+    <div style="padding:32px 24px 32px 0;border-bottom:1px solid #d8d3ca">
+      <div style="font-family:'Instrument Serif',serif;font-size:clamp(44px,5vw,68px);line-height:1;letter-spacing:-0.02em">{{ s.v }}</div>
+      <div style="margin-top:12px;font-size:14px;line-height:1.45;color:#55524c;max-width:22ch">{{ s.l }}</div>
+    </div>
+  </sc-for>
+</section>
+
+<section style="padding:clamp(72px,10vw,128px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:40px 64px">
+  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4vw,52px);line-height:1.05;letter-spacing:-0.015em;margin:0">About</h2>
+  <div style="font-size:18px;line-height:1.65;color:#2c2a26;text-wrap:pretty;display:flex;flex-direction:column;gap:20px">
+    <p style="margin:0">Architected microservices handling 1M+ monthly requests at 99.95% uptime using Node.js, TypeScript, and AWS Serverless. Led an 8-member engineering team, reduced API latency by 35%, cut deployment time by 40% through CI/CD automation, and optimized cloud infrastructure saving $3.5K/month.</p>
+    <p style="margin:0">Deep experience in payment integrations, secure healthcare APIs, and real estate platforms. Built and delivered event-driven serverless architectures, multi-tenant systems with RBAC, and distributed systems with deep observability and performance tuning.</p>
+    <p style="margin:0">Comfortable owning backend architecture end-to-end, from design to deployment to cost optimization.</p>
+  </div>
+</section>
+
+<section id="experience" style="padding-bottom:clamp(72px,10vw,128px)">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid #1c1b19;padding-bottom:20px">
+    <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4vw,52px);line-height:1.05;letter-spacing:-0.015em;margin:0">Experience</h2>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#55524c;letter-spacing:0.06em">2018 — PRESENT</span>
+  </div>
+  <sc-for list="{{ jobs }}" as="j" hint-placeholder-count="5">
+    <article data-reveal="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px 64px;padding:40px 0;border-bottom:1px solid #d8d3ca">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#c9482b">{{ j.when }}</div>
+        <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:34px;line-height:1.1;margin:12px 0 6px">{{ j.co }}</h3>
+        <div style="font-size:16px;font-weight:500">{{ j.role }}</div>
+        <div style="font-size:14px;color:#55524c;margin-top:4px">{{ j.where }}</div>
+      </div>
+      <div>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px">
+          <sc-for list="{{ j.pts }}" as="p" hint-placeholder-count="3">
+            <li style="display:grid;grid-template-columns:16px 1fr;font-size:16px;line-height:1.55;color:#2c2a26;text-wrap:pretty"><span style="color:#c9482b">&#8250;</span><span>{{ p }}</span></li>
+          </sc-for>
+        </ul>
+        <div style="margin-top:20px;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.7;color:#55524c">{{ j.stack }}</div>
+      </div>
+    </article>
+  </sc-for>
+</section>
+
+<section id="work" style="background:#1c1b19;color:#f4f1ec;margin:0 calc(-1 * clamp(20px,4vw,48px));padding:clamp(64px,9vw,112px) clamp(20px,4vw,48px)">
+  <div style="max-width:1160px;margin:0 auto">
+    <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4vw,52px);line-height:1.05;letter-spacing:-0.015em;margin:0 0 48px">Selected work</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:1px;background:#3a3833;border:1px solid #3a3833">
+      <sc-for list="{{ work }}" as="w" hint-placeholder-count="4">
+        <div data-card="1" data-reveal="1" style="background:#1c1b19;padding:40px;display:flex;flex-direction:column;gap:24px;position:relative">
+          <span data-bar="1" style="position:absolute;left:0;right:0;top:0;height:2px;background:#ec8a6f"></span>
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.06em;color:#ec8a6f;line-height:1.5">{{ w.n }} / {{ w.tag }}</div>
+            <span data-arrow="1" style="font-size:22px;line-height:1;color:#8a857b">&#8599;</span>
+          </div>
+          <h3 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(28px,3vw,36px);line-height:1.1;margin:0;text-wrap:balance">{{ w.title }}</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:24px 0;border-top:1px solid #3a3833;border-bottom:1px solid #3a3833">
+            <sc-for list="{{ w.nums }}" as="n" hint-placeholder-count="2">
+              <div><div style="font-family:'Instrument Serif',serif;font-size:clamp(34px,4vw,48px);line-height:1;letter-spacing:-0.02em">{{ n.v }}</div><div style="font-size:13px;color:#b5b0a6;margin-top:8px;line-height:1.4">{{ n.l }}</div></div>
+            </sc-for>
+          </div>
+          <p style="margin:0;font-size:15px;line-height:1.65;color:#d4cfc5;text-wrap:pretty;flex:1">{{ w.body }}</p>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.04em;color:#8a857b;line-height:1.7">{{ w.stack }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="padding:clamp(72px,10vw,128px) 0">
+  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4vw,52px);line-height:1.05;letter-spacing:-0.015em;margin:0 0 48px">Skills and technologies</h2>
+  <div style="border-top:1px solid #1c1b19">
+    <sc-for list="{{ skills }}" as="g" hint-placeholder-count="6">
+      <div data-reveal="1" style="display:flex;flex-wrap:wrap;gap:14px 48px;padding:24px 0;border-bottom:1px solid #d8d3ca">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#c9482b;padding-top:6px;flex:1 1 180px;max-width:240px">{{ g.name }}</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;flex:3 1 320px">
+          <sc-for list="{{ g.items }}" as="t" hint-placeholder-count="6">
+            <span style="border:1px solid #bdb7ac;border-radius:999px;padding:6px 14px;font-size:14px" style-hover="background:#1c1b19;color:#f4f1ec;border-color:#1c1b19">{{ t }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section style="padding-bottom:clamp(72px,10vw,128px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:40px 64px">
+  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4vw,52px);line-height:1.05;letter-spacing:-0.015em;margin:0">Education</h2>
+  <div style="display:flex;flex-direction:column;gap:24px">
+    <div><div style="font-size:18px;font-weight:500">Niranjan Majhithia College of Commerce</div><div style="color:#55524c;margin-top:4px">BScIT, IT · 2016 - 2018</div></div>
+    <div><div style="font-size:18px;font-weight:500">M J Junior College of Science</div><div style="color:#55524c;margin-top:4px">Niranjana Hospital · Bachelor of Science</div></div>
+  </div>
+</section>
+
+<footer id="contact" style="border-top:1px solid #1c1b19;padding:clamp(64px,9vw,112px) 0 40px">
+  <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(48px,8vw,112px);line-height:0.98;letter-spacing:-0.025em;margin:0;max-width:14ch">Let's build something reliable.</h2>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:40px">
+    <a href="https://www.linkedin.com/in/atul-tiwari-91990316a" style="background:#c9482b;color:#fff;padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:500" style-hover="background:#1c1b19;color:#fff">Connect on LinkedIn</a>
+    <a href="resume.pdf" download="Atul Tiwari - Resume.pdf" style="border:1px solid #1c1b19;padding:13px 26px;border-radius:999px;text-decoration:none;font-weight:500" style-hover="background:#1c1b19;color:#f4f1ec">Resume (PDF)</a>
+  </div>
+  <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:96px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#55524c"><span>Atul Tiwari · Mumbai, Maharashtra, India</span><span>Backend Engineering · Tech Leadership</span></div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      stats: [
+        { v: '1M+', l: 'monthly requests served at 99.95% uptime' },
+        { v: '8', l: 'engineers led as Tech Lead' },
+        { v: '40%', l: 'faster deployments through CI/CD automation' },
+        { v: '$3.5K', l: 'saved per month on cloud infrastructure' }
+      ],
+      jobs: [
+        { when: 'May 2026 — Present', co: 'Persistent Systems', role: 'Project Lead', where: 'Mumbai Metropolitan Region', pts: [], stack: '' },
+        { when: '2025 — May 2026', co: 'Wilco Source', role: 'Senior Software Engineer', where: 'Mumbai, Maharashtra', stack: 'Node.js · TypeScript · NestJS · AWS Lambda · API Gateway · PostgreSQL (RDS) · S3 · Jest · GitHub Actions',
+          pts: ['Reduced average API response time by 40% by re-architecting backend services for a portable ultrasound imaging platform.',
+            'Delivered serverless REST APIs handling 10K+ daily image uploads with zero data-loss incidents, storing ultrasound studies in AWS S3 and PostgreSQL (RDS) with AES-256 encryption.',
+            'Cut mean-time-to-detect production issues by 50% by integrating AWS CloudWatch, X-Ray distributed tracing, and Winston structured logging.',
+            'Implemented JWT authentication, OAuth 2.0, RBAC, and HIPAA-aligned data handling, passing internal security audit with zero critical findings.',
+            'Achieved 90%+ backend test coverage with Jest and Supertest; automated deployment via GitHub Actions, reducing release cycle from weekly to daily.'] },
+        { when: 'May 2024 — Sep 2025', co: 'Torinit', role: 'Senior Software Engineer', where: 'Pune District, Maharashtra', stack: 'Laravel · Node.js · PostgreSQL · MySQL · Redis · AWS · Docker · REST APIs · Git · Microservices',
+          pts: ['Led backend architecture for a multi-tenant SaaS platform used by 100K+ users.',
+            'Developed and maintained REST APIs using Laravel, Node.js, and PostgreSQL.',
+            'Designed role-based access control (RBAC) and modular field-level permissions.',
+            'Built AWS serverless functions with Lambda, RDS, S3, and CloudWatch.',
+            'Refactored legacy codebases, reducing technical debt and improving API performance by 60%.',
+            'Integrated Redis for caching and queue systems, reducing response times by 45%.',
+            'Implemented CI/CD pipelines with GitHub Actions and AWS CodePipeline; worked closely with frontend teams using React and Inertia.js.'] },
+        { when: 'Aug 2020 — May 2024', co: 'i-XL Technologies', role: 'Back End Developer, then Senior Software Engineer', where: 'Mumbai, Maharashtra · 4 years', stack: 'Node.js · Express.js · TypeScript · Laravel/PHP · AWS Lambda · ECS · PostgreSQL · MySQL · MongoDB · Redis · Sequelize · TypeORM',
+          pts: ['Owned 15+ cloud-native backend services processing 100K+ monthly transactions at 99.9% uptime with sub-200ms average response time.',
+            'Migrated 4 legacy PHP monoliths to AWS Lambda and ECS microservices: cut deployment time by 40%, eliminated USD 15K/year in over-provisioned EC2 capacity, and moved releases from monthly to weekly.',
+            'Designed and shipped 30+ REST API and GraphQL endpoints consumed by web and mobile clients.',
+            'Hardened API security with JWT, OAuth 2.0, Passport.js, Helmet.js, bcrypt, RBAC, and rate-limiting, with zero authentication-related security incidents over 4 years.',
+            'Reduced post-release bugs by 35% by embedding automated integration tests (Jest, Supertest) into CI and establishing API contract reviews with frontend and QA teams.',
+            'Mentored 4 junior developers; a Git branching standard reduced production regressions by 40% and cut new-hire ramp time by 2 weeks.',
+            'Built production monitoring and alerting with CloudWatch and SNS-based pager alerts, achieving average MTTD under 5 minutes for P1 incidents.'] },
+        { when: 'May 2018 — Jul 2020', co: 'Bookmyflat.com Pvt Ltd', role: 'PHP Developer, then Team Lead', where: '2 years 3 months', stack: 'PHP (Laravel) · Node.js · MySQL · Redis · AWS Lambda · Winston · CloudWatch',
+          pts: ['Halved average API response time from 800ms to 400ms for the rental platform serving 20K+ users, using N+1 query fixes, connection pooling, and Redis caching.',
+            'Delivered 12+ production REST APIs for rent collection, tenant onboarding, and KYC workflows, eliminating 20+ hours per month of manual back-office work and reducing onboarding time by 3 days.',
+            'Automated rent reminders, invoicing, and arrears escalation with Node.js cron workers and AWS Lambda scheduled events, increasing on-time payment collection by 25%.',
+            'Resolved 60% of slow-query incidents; average DB query time fell from 380ms to 90ms.',
+            'Led a 4-person backend team: sprint planning, code reviews, production releases; introduced structured logging and CloudWatch monitoring.'] }
+      ],
+      work: [
+        { n: '01', stack: 'NestJS · AWS Lambda · API Gateway · S3 · PostgreSQL · X-Ray', tag: 'WILCO SOURCE · HEALTHCARE', title: 'Portable ultrasound imaging platform', nums: [{ v: '40%', l: 'faster average API response' }, { v: '10K+', l: 'daily image uploads, zero data loss' }], body: 'Serverless REST APIs on Lambda and API Gateway ingest, process, and store studies in S3 and PostgreSQL with AES-256 encryption, HIPAA-aligned handling, and X-Ray tracing.' },
+        { n: '02', stack: 'Node.js · TypeScript · AWS Lambda · ECS · CloudWatch', tag: 'I-XL TECHNOLOGIES · MIGRATION', title: 'Legacy PHP monoliths to microservices', nums: [{ v: '4', l: 'monoliths moved to Lambda and ECS' }, { v: '$15K', l: 'per year EC2 capacity eliminated' }], body: 'Deployment time cut by 40% and release frequency moved from monthly to weekly across 15+ cloud-native services.' },
+        { n: '03', stack: 'Laravel · Node.js · PostgreSQL · Redis · Lambda · CodePipeline', tag: 'TORINIT · SAAS', title: 'Multi-tenant platform with RBAC', nums: [{ v: '100K+', l: 'users on the platform' }, { v: '45%', l: 'lower response times with Redis' }], body: 'Backend architecture with role-based access control and modular field-level permissions, plus a 60% API performance gain from refactoring legacy code.' },
+        { n: '04', stack: 'Laravel · Node.js · MySQL · Redis · Lambda scheduled events', tag: 'BOOKMYFLAT · REAL ESTATE', title: 'Rental platform performance and automation', nums: [{ v: '800→400ms', l: 'average API response' }, { v: '+25%', l: 'on-time rent collection' }], body: 'Query tuning, indexing, and Redis caching, plus automated reminders, invoicing, and arrears escalation for 20K+ users.' }
+      ],
+      skills: [
+        { name: 'Languages', items: ['TypeScript', 'Node.js', 'PHP'] },
+        { name: 'Frameworks', items: ['NestJS', 'Express.js', 'Laravel', 'React', 'Inertia.js'] },
+        { name: 'Data', items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'Sequelize', 'TypeORM'] },
+        { name: 'Architecture', items: ['Microservices', 'Serverless Computing', 'Distributed Systems', 'WebSocket', 'REST APIs', 'GraphQL', 'Multi-tenant systems', 'System Design'] },
+        { name: 'Cloud and DevOps', items: ['AWS Lambda', 'API Gateway', 'SQS', 'SNS', 'S3', 'RDS', 'ECS', 'CloudWatch', 'X-Ray', 'Docker', 'GitHub Actions', 'CodePipeline'] },
+        { name: 'Security and quality', items: ['JWT', 'OAuth 2.0', 'RBAC', 'Passport.js', 'Helmet.js', 'bcrypt', 'Rate limiting', 'HIPAA-aligned handling', 'Jest', 'Supertest', 'Winston'] },
+        { name: 'Leadership', items: ['Team leadership', 'Mentoring', 'Code reviews', 'Sprint planning', 'API contract reviews'] }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

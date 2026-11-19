@@ -1,0 +1,161 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+import { stats } from '../data/stats';
+import { jobs } from '../data/jobs';
+import { work } from '../data/work';
+import { skills } from '../data/skills';
+import { education } from '../data/education';
+---
+
+<Base>
+  <section class="hero" id="top" data-hero>
+    <div class="eyebrow" data-in>
+      <span class="dot" data-dot></span>
+      {site.eyebrow}
+    </div>
+    <h1 class="display">
+      <span data-line><span style="--d:.1s">Backend systems</span></span>
+      <span data-line><span style="--d:.22s">that <em>stay up</em>.</span></span>
+    </h1>
+    <div class="meta-strip" data-in style="--d:.55s">
+      <span>Atul Tiwari</span>
+      <span>{site.company}</span>
+      <span>{site.location}</span>
+      <span>{site.years}</span>
+    </div>
+    <div class="hero-grid">
+      <p class="lede" data-in style="--d:.7s">{site.description}</p>
+      <div class="cta" data-in style="--d:.85s">
+        <a class="btn btn-primary" href={site.resumePath} download={site.resumeFilename}>Download resume</a>
+        <a class="btn btn-secondary" href={site.linkedin} rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="Impact">
+    {
+      stats.map((stat) => (
+        <div class="stat">
+          <div class="stat-value">{stat.value}</div>
+          <div class="stat-label">{stat.label}</div>
+        </div>
+      ))
+    }
+  </section>
+
+  <section class="split" aria-labelledby="about-heading">
+    <h2 class="h2" id="about-heading">About</h2>
+    <div class="about-copy">
+      <p>
+        Architected microservices handling 1M+ monthly requests at 99.95% uptime using Node.js, TypeScript, and AWS
+        Serverless. Led an 8-member engineering team, reduced API latency by 35%, cut deployment time by 40% through
+        CI/CD automation, and optimized cloud infrastructure saving $3.5K/month.
+      </p>
+      <p>
+        Deep experience in payment integrations, secure healthcare APIs, and real estate platforms. Built and delivered
+        event-driven serverless architectures, multi-tenant systems with RBAC, and distributed systems with deep
+        observability and performance tuning.
+      </p>
+      <p>Comfortable owning backend architecture end-to-end, from design to deployment to cost optimization.</p>
+    </div>
+  </section>
+
+  <section class="experience" id="experience">
+    <div class="section-head">
+      <h2 class="h2">Experience</h2>
+      <span class="section-range">2018 — PRESENT</span>
+    </div>
+    {
+      jobs.map((job) => (
+        <article class="job" data-reveal>
+          <div>
+            <div class="job-when">{job.when}</div>
+            <h3>{job.company}</h3>
+            <div class="job-role">{job.role}</div>
+            <div class="job-where">{job.where}</div>
+          </div>
+          <div>
+            {job.points.length > 0 && (
+              <ul class="points">
+                {job.points.map((point) => (
+                  <li>
+                    <span aria-hidden="true">›</span>
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {job.stack && <div class="stack-line">{job.stack}</div>}
+          </div>
+        </article>
+      ))
+    }
+  </section>
+
+  <section class="work" id="work">
+    <div class="work-inner">
+      <h2 class="h2">Selected work</h2>
+      <div class="work-grid">
+        {
+          work.map((item) => (
+            <a class="card" data-card data-reveal href={`/case-studies/${item.slug}`}>
+              <span class="bar" data-bar aria-hidden="true" />
+              <div class="card-top">
+                <div class="card-tag">
+                  {item.n} / {item.tag}
+                </div>
+                <span class="arrow" data-arrow aria-hidden="true">
+                  ↗
+                </span>
+              </div>
+              <h3>{item.title}</h3>
+              <div class="metrics">
+                {item.metrics.map((metric) => (
+                  <div>
+                    <div class="metric-value">{metric.value}</div>
+                    <div class="metric-label">{metric.label}</div>
+                  </div>
+                ))}
+              </div>
+              <p>{item.body}</p>
+              <div class="card-stack">{item.stack}</div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="skills" id="skills">
+    <h2 class="h2">Skills and technologies</h2>
+    <div class="skill-list">
+      {
+        skills.map((group) => (
+          <div class="skill-row" data-reveal>
+            <div class="skill-name">{group.name}</div>
+            <div class="chips">
+              {group.items.map((item) => (
+                <span class="chip">{item}</span>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="split split-tight" aria-labelledby="education-heading">
+    <h2 class="h2" id="education-heading">Education</h2>
+    <div class="schools">
+      {
+        education.map((school) => (
+          <div>
+            <div class="school-name">{school.name}</div>
+            <div class="school-detail">{school.detail}</div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Base>
